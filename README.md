@@ -17,4 +17,4 @@ Github Repository Link: https://github.com/OC-Kai/Random-Password-Generator
 
 Live Link: https://oc-kai.github.io/Random-Password-Generator/
 
-Screenshot:
+Screenshot: ![screenshot](./assets/images/screenshot.png?raw=true)
