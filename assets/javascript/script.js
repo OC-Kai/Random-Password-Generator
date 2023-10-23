@@ -1,28 +1,17 @@
 // Assignment Code
 
-//set password as blank array
-var password = [];
-
-//create empty string for final password
-var finalPassword = "";
-
 function generatePassword() {
+  //set password as blank array
+  var password = [];
+  // create empty string for final password
+  var finalPassword = "";
 
   //Gather password criteria from user
 
   window.alert("Welcome to the random password generator!");
 
 
-  var passwordLength = Number(window.prompt("How long would you like your password to be?"));
-
-  //checks to ensure min and max length of password
-
-  if (passwordLength < 8 || passwordLength > 128) {
-      window.alert("Please ensure the password is at least 8 and no greater than 128 characters.");
-      generatePassword();
-  }
-
-  //asks user which types and how many of each character they would like
+  //asks user which types of character they would like in their password
 
   var lowerLetters = Number( window.prompt("Please enter how many lower case letters you would like in your password."));
 
@@ -31,6 +20,14 @@ function generatePassword() {
   var numbers = Number(window.prompt("Please enter how many numbers you would like in your password."));
 
   var symbols = Number(window.prompt("Please enter how many special characters you would like in your password."));
+
+
+  //checks to ensure min and max length of password
+
+  if (lowerLetters + upperLetters + numbers + symbols < 8 || lowerLetters + upperLetters + numbers + symbols > 128) {
+    window.alert("Please ensure the password has at least 8 characters and no greater than 128 characters.");
+    generatePassword();
+  }
 
 
   //functions to generate random lower and upper case letters, numbers, and symbols
@@ -48,7 +45,7 @@ function generatePassword() {
   }
 
   function randomSymbol() {
-    return String.fromCharCode(Math.floor(Math.random() * 16) + 32);
+    return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
   }
 
 
@@ -84,11 +81,12 @@ function generatePassword() {
   
   }
 
+  //takes characters from array and adds them to blank string
   for (i = 0; i < password.length; i++) {
     finalPassword += password[i];
   } 
 
-  window.alert("Your password is: " + finalPassword);
+  return finalPassword;
 }
 
 var generateBtn = document.querySelector("#generate");
@@ -103,5 +101,5 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword());
+generateBtn.addEventListener("click", writePassword);
 
